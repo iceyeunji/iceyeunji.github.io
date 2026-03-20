@@ -1,156 +1,525 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Huang Shiyi | Academic Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huang Shiyi | 数字人文研究</title>
+    <!-- Font Awesome 图标库 (用于邮箱、导航等) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-body {margin:0;font-family:"Noto Sans KR", Arial;background:#f8fafc;color:#1e293b;}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', 'Helvetica Neue', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
 
-/* layout */
-.container {max-width:900px;margin:0 auto;padding:40px 20px;}
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
 
-/* header */
-.header {text-align:center;margin-bottom:50px;}
-.header img {width:150px;border-radius:50%;box-shadow:0 6px 20px rgba(0,0,0,0.1);}
-.header h1 {margin:15px 0 5px;font-size:28px;}
-.header p {margin:3px 0;color:#64748b;}
+        /* ===== 头部区域 ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+        .header h1 .chinese-name {
+            font-weight: 400;
+            color: #475569;
+            font-size: 1.6rem;
+        }
+        .header .subhead {
+            font-size: 1.2rem;
+            color: #2563eb;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .header .affiliation {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+        .header .email {
+            font-size: 0.95rem;
+            color: #2563eb;
+            background: #e0f2fe;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        .header .email i {
+            margin-right: 6px;
+            color: #0369a1;
+        }
+        .header .email:hover {
+            background: #bae6fd;
+            text-decoration: none;
+        }
+        .header a {
+            text-decoration: none;
+        }
 
-/* nav */
-nav {text-align:center;margin-bottom:40px;}
-nav a {margin:0 12px;text-decoration:none;color:#334155;font-size:14px;}
-nav a:hover {color:#2563eb;}
+        /* ===== 导航栏 ===== */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 16px;
+            margin-bottom: 48px;
+            padding: 12px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        nav a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        nav a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
 
-/* sections */
-section {margin-bottom:50px;}
-h2 {font-size:20px;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:15px;}
+        /* ===== 通用章节 ===== */
+        section {
+            margin-bottom: 56px;
+            scroll-margin-top: 20px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #0f172a;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+        }
+        h2 i {
+            color: #2563eb;
+            font-size: 1.6rem;  /* 标题图标稍大，与标题协调 */
+            margin-right: 12px;
+        }
 
-.card {background:#fff;padding:22px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:0.3s;}
-.card:hover {transform:translateY(-3px);}
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 30px -8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.12);
+        }
 
-/* table */
-table {width:100%;border-collapse:collapse;margin-top:10px;}
-th, td {border:1px solid #e2e8f0;padding:10px;text-align:center;}
-th {background:#f1f5f9;}
+        /* 标签云 (研究领域) */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .tag {
+            background: #eef2ff;
+            color: #2563eb;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 40px;
+            border: 1px solid #cbd5e1;
+            transition: 0.2s;
+        }
+        .tag:hover {
+            background: #dbeafe;
+            border-color: #2563eb;
+        }
 
-/* publications */
-.pub p {margin-bottom:18px;line-height:1.6;}
-.pub a {color:#2563eb;text-decoration:none;font-size:14px;}
-.pub a:hover {text-decoration:underline;}
+        /* ===== 教育背景 (Flex卡片替代表格) ===== */
+        .edu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .edu-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .edu-item:last-child {
+            border-bottom: none;
+        }
+        .edu-degree {
+            font-weight: 600;
+            width: 110px;
+            color: #2563eb;
+        }
+        .edu-major {
+            font-weight: 500;
+            width: 180px;
+            color: #0f172a;
+        }
+        .edu-univ {
+            flex: 1;
+            color: #475569;
+        }
+        .edu-year {
+            width: 150px;
+            text-align: right;
+            color: #64748b;
+            font-family: monospace;
+        }
+        @media (max-width: 700px) {
+            .edu-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .edu-degree, .edu-major, .edu-univ, .edu-year {
+                width: 100%;
+                text-align: left;
+            }
+        }
 
-/* tags */
-.tag {display:inline-block;background:#e0f2fe;color:#0369a1;padding:4px 10px;border-radius:8px;font-size:12px;margin-right:6px;margin-top:5px;}
+        /* ===== 出版物条目 ===== */
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .pub-item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .pub-info {
+            flex: 1;
+        }
+        .pub-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+        .pub-authors {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        .pub-authors b {
+            color: #2563eb;
+            font-weight: 600;
+        }
+        .pub-venue {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .pub-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-link {
+            background: #f1f5f9;
+            color: #2563eb;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid #cbd5e1;
+            transition: 0.2s;
+        }
+        .btn-link i {
+            font-size: 0.8rem; /* 按钮内图标稍小 */
+        }
+        .btn-link:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
 
-</style>
+        /* ===== 项目列表 (经费以低调样式显示) ===== */
+        .project-item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        .project-role {
+            width: 70px;
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .project-desc {
+            flex: 1;
+            color: #1e293b;
+        }
+        .project-funding {
+            color: #64748b;
+            font-style: italic;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        /* 软件著作权 & 教学 (使用普通符号) */
+        .simple-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .simple-item {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .simple-item .symbol {
+            color: #2563eb;
+            width: 22px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem; /* 与文字大小一致 */
+        }
+        .simple-item span {
+            flex: 1;
+        }
+
+        /* ===== 图标大小全局微调 ===== */
+        /* 让大部分图标与周围文字大小相同，避免突兀变大 */
+        i, .fas, .far, .fab {
+            font-size: 1em;
+        }
+        /* 导航栏图标与文字间距 */
+        nav a i {
+            margin-right: 4px;
+        }
+        /* 段落中引号图标稍微调小一点 */
+        .fa-quote-left {
+            font-size: 0.9em;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 600px) {
+            .container { padding: 24px 16px; }
+            h2 { font-size: 1.6rem; }
+            .card { padding: 20px; }
+            nav { gap: 10px; }
+            nav a { font-size: 0.85rem; }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
 
-<!-- header -->
-<div class="header">
-<img src="images/profile.jpg">
-<h1>황시이 (Huang, Shiyi)</h1>
-<p>PhD Candidate | Digital Humanities</p>
-<p>한국학중앙연구원 (AKS)</p>
-<p>huangshiyi1203@gmail.com</p>
-</div>
+    <!-- ===== 头部：英文名+中文名 ===== -->
+    <div class="header">
+        <img src="images/profile.jpg" alt="黄诗怡" onerror="this.style.display='none'"> <!-- 如果图片不存在则隐藏 -->
+        <h1>Huang Shiyi <span class="chinese-name">(黄诗怡)</span></h1>
+        <div class="subhead">PhD Candidate in Digital Humanities</div>
+        <div class="affiliation">한국학중앙연구원 (AKS) · 数字人文研究所</div>
+        <a href="mailto:huangshiyi1203@gmail.com" class="email"><i class="fas fa-envelope"></i> huangshiyi1203@gmail.com</a>
+    </div>
 
-<!-- nav -->
-<nav>
-<a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#experience">Experience</a>
-<a href="#publications">Publications</a>
-<a href="#projects">Projects</a>
-<a href="#software">Software</a>
-<a href="#teaching">Teaching</a>
-</nav>
+    <!-- ===== 导航栏 ===== -->
+    <nav>
+        <a href="#about"><i class="fas fa-user"></i> About</a>
+        <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+        <a href="#publications"><i class="fas fa-file-alt"></i> Publications</a>
+        <a href="#projects"><i class="fas fa-flask"></i> Projects</a>
+        <a href="#software"><i class="fas fa-code"></i> Software</a>
+        <a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Teaching</a>
+    </nav>
 
-<!-- about -->
-<section id="about">
-<h2>About</h2>
-<div class="card">
-<p>안녕하세요, 한국학중앙연구원 디지털인문학연구소에서 인문정보학을 전공하며 디지털 인문학과 미디어 연구의 접점을 탐구하고 있는 황시이입니다.</p>
-<p>大家好，我是来自中国的黄诗怡，现就读于韩国学中央研究院人文情报学，研究领域是数字人文与电影的交叉学科，也可称为计量电影学。并且目前在数字人文研究所中担任研究员，请各位多多指教，谢谢！</p>
-<div class="tag">Digital Humanities</div>
-<div class="tag">Film Studies</div>
-<div class="tag">AIGC</div>
-<div class="tag">Computational Analysis</div>
-</div>
-</section>
+    <!-- ===== 关于我 ===== -->
+    <section id="about">
+        <h2><i class="fas fa-address-card"></i> About</h2>
+        <div class="card">
+            <p style="margin-bottom: 12px;">안녕하세요, 한국학중앙연구원 디지털인문학연구소에서 인문정보학을 전공하며 디지털 인문학과 미디어 연구의 접점을 탐구하고 있는 황시이입니다.</p>
+            <p style="margin-bottom: 16px;">大家好，我是黄诗怡，现就读于韩国学中央研究院人文情报学（数字人文方向），研究领域聚焦于数字人文与电影研究的交叉学科——计量电影学。目前在数字人文研究所担任研究员。</p>
+            <!-- 新增中文段落：更详细的个人陈述 -->
+            <p style="margin-bottom: 16px; background: #f1f5f9; padding: 16px; border-radius: 12px; color: #0f172a;">
+                <i class="fas fa-quote-left" style="color: #2563eb; margin-right: 6px;"></i>
+                我的研究兴趣主要包括：运用计算分析方法探索东亚电影的叙事与视觉风格，研究AIGC在短视频平台及影视创作中的应用，以及新媒体环境下的参与式文化。目前正在进行的博士课题致力于构建计量电影学的跨文化分析框架。此外，我积极参与产学合作项目，推动虚拟现实、人工智能等技术在影视教育中的创新实践。希望未来能通过数字人文的方法，为电影研究开辟新的视角。
+            </p>
+            <div class="tags">
+                <span class="tag">Digital Humanities</span>
+                <span class="tag">Film Studies</span>
+                <span class="tag">AIGC</span>
+                <span class="tag">Computational Analysis</span>
+                <span class="tag">计量电影学</span>
+            </div>
+        </div>
+    </section>
 
-<!-- education -->
-<section id="education">
-<h2>Education</h2>
-<div class="card">
-<table>
-<tr><th>Degree</th><th>Major</th><th>University</th><th>Year</th></tr>
-<tr><td>Ph.D. Student</td><td>인문정보학</td><td>한국학중앙연구원</td><td>2026.03~</td></tr>
-<tr><td>M.A.</td><td>영상학과</td><td>성균관대학교</td><td>2022.03-2024.02</td></tr>
-<tr><td>B.A.</td><td>영화영상학과</td><td>동국대학교</td><td>2018.03-2022.02</td></tr>
-</table>
-</div>
-</section>
+    <!-- ===== 教育背景 ===== -->
+    <section id="education">
+        <h2><i class="fas fa-university"></i> Education</h2>
+        <div class="card">
+            <div class="edu-grid">
+                <div class="edu-item">
+                    <span class="edu-degree">Ph.D. Student</span>
+                    <span class="edu-major">인문정보학</span>
+                    <span class="edu-univ">한국학중앙연구원 (AKS)</span>
+                    <span class="edu-year">2026.03 – 至今</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-degree">M.A.</span>
+                    <span class="edu-major">영상학과</span>
+                    <span class="edu-univ">성균관대학교</span>
+                    <span class="edu-year">2022.03 – 2024.02</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-degree">B.A.</span>
+                    <span class="edu-major">영화영상학과</span>
+                    <span class="edu-univ">동국대학교</span>
+                    <span class="edu-year">2018.03 – 2022.02</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- experience -->
-<section id="experience">
-<h2>Academic Appointments</h2>
-<div class="card">
-<ul>
-<li>전임강사, 난창이공대학, 南昌理工学院</li>
-<li>전임강사, 장시과학기술사범대학, 江西科技师范大学</li>
-</ul>
-</div>
-</section>
+    <!-- ===== 学术任职 ===== -->
+    <section id="experience">
+        <h2><i class="fas fa-briefcase"></i> Academic Appointments</h2>
+        <div class="card">
+            <div class="simple-list">
+                <div class="simple-item"><span class="symbol">📌</span> <span><strong>전임강사</strong>, 난창이공대학 (南昌理工学院)</span></div>
+                <div class="simple-item"><span class="symbol">📌</span> <span><strong>전임강사</strong>, 장시과학기술사범대학 (江西科技师范大学)</span></div>
+            </div>
+        </div>
+    </section>
 
-<!-- publications -->
-<section id="publications">
-<h2>Publications</h2>
-<div class="card pub">
-<p><b>황시이</b>. "중국 동영상 플랫폼 Bilibili의 탄막 현상 분석 - 헨리 젠킨스의 참여문화 개념을 중심으로"<br>
-<a href="https://koreascience.or.kr/article/JAKO202324172318263.page" target="_blank">🔗 KCI 바로가기</a></p>
+    <!-- ===== 出版物 ===== -->
+    <section id="publications">
+        <h2><i class="fas fa-file-alt"></i> Publications</h2>
+        <div class="card">
+            <div class="pub-list">
+                <!-- 论文 1 -->
+                <div class="pub-item">
+                    <div class="pub-info">
+                        <div class="pub-title">중국 동영상 플랫폼 Bilibili의 탄막 현상 분석 - 헨리 젠킨스의 참여문화 개념을 중심으로</div>
+                        <div class="pub-authors"><b>황시이</b></div>
+                        <div class="pub-venue">KCI 등재 학술지</div>
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://koreascience.or.kr/article/JAKO202324172318263.page" target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> KCI</a>
+                    </div>
+                </div>
+                <!-- 论文 2 -->
+                <div class="pub-item">
+                    <div class="pub-info">
+                        <div class="pub-title">AIGC在短视频平台上的应用及其对用户行为影响研究</div>
+                        <div class="pub-authors"><b>Huang Shiyi</b></div>
+                        <div class="pub-venue">CNKI收录</div>
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://oversea-cnki-net-ssl.openlink.aks.ac.kr/kcms2/article/abstract?..." target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> CNKI</a>
+                    </div>
+                </div>
+                <!-- 论文 3 (会议) -->
+                <div class="pub-item">
+                    <div class="pub-info">
+                        <div class="pub-title">AIGC技术赋能《影视剧本创作》课程的教学创新研究</div>
+                        <div class="pub-authors"><b>Huang Shiyi</b></div>
+                        <div class="pub-venue">학술대회 (学术会议)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p><b>Huang Shiyi</b>. "AIGC在短视频平台上的应用及其对用户行为影响研究"<br>
-<a href="https://oversea-cnki-net-ssl.openlink.aks.ac.kr/kcms2/article/abstract?v=esvOG1ozB-hUexg6l5ZJ3lW4yuSpohSNAK3UzMY3xynwOnF_RDjBzfosNet0US4kCEcsP-phn8M_nGDupIQvoD23UW38ZlLcdVEInUkF9xrvqeQHcdwFlfEtGB6oasFzETwBEvCKJcljsUUwtlWwYdd0sXW2EU3STl4vTumxA3So6XFmi5ngAw=" target="_blank">🔗 CNKI 바로가기</a></p>
+    <!-- ===== 研究项目 ===== -->
+    <section id="projects">
+        <h2><i class="fas fa-flask"></i> Research Projects</h2>
+        <div class="card">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="project-item">
+                    <span class="project-role">PI</span>
+                    <span class="project-desc">"장시 커통윈푸 전자상거래 회사 웹 디자인 기술 서비스" (산학협력 프로젝트)</span>
+                    <span class="project-funding">(2000만원)</span>
+                </div>
+                <div class="project-item">
+                    <span class="project-role">PI</span>
+                    <span class="project-desc">"숏폼 비디오 플랫폼에서의 AIGC 적용 및 사용자 행동 영향 연구"</span>
+                </div>
+                <div class="project-item">
+                    <span class="project-role">Co-I</span>
+                    <span class="project-desc">"영상 텍스트 작문 수업에서의 가상현실 시뮬레이션 기술 자원 개발"</span>
+                    <span class="project-funding">(4000만원)</span>
+                </div>
+                <div class="project-item">
+                    <span class="project-role">Co-I</span>
+                    <span class="project-desc">"인공지능 시대 장시성 대학의 영상예술 실기교육 혁신 경로 연구"</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p><b>Huang Shiyi</b>. AIGC技术赋能《影视剧本创作》课程的教学创新研究. (학술대회)</p>
-</div>
-</section>
+    <!-- ===== 软件著作权 (改用普通符号) ===== -->
+    <section id="software">
+        <h2><i class="fas fa-code"></i> Software Copyrights</h2>
+        <div class="card">
+            <div class="simple-list">
+                <div class="simple-item"><span class="symbol">©</span> <span>영화 특수효과 제작 보조 소프트웨어 V1.0 (등록번호: 2025SR1190495)</span></div>
+                <div class="simple-item"><span class="symbol">©</span> <span>시나리오 내러티브 로직 분석 및 대본 최적화 시스템 V1.0 (등록번호: 2025SR1257280)</span></div>
+            </div>
+        </div>
+    </section>
 
-<!-- projects -->
-<section id="projects">
-<h2>Research Projects</h2>
-<div class="card">
-<p><b>PI</b> "장시 커통윈푸 전자상거래 회사 웹 디자인 기술 서비스" (산학협력 프로젝트). 연구비: 2000만원</p>
-<p><b>PI</b> "숏폼 비디오 플랫폼에서의 AIGC 적용 및 사용자 행동 영향 연구"</p>
-<p><b>Co-I</b> "영상 텍스트 작문 수업에서의 가상현실 시뮬레이션 기술 자원 개발" (연구비: 4000만원)</p>
-<p><b>Co-I</b> "인공지능 시대 장시성 대학의 영상예술 실기교육 혁신 경로 연구"</p>
-</div>
-</section>
+    <!-- ===== 教学 ===== -->
+    <section id="teaching">
+        <h2><i class="fas fa-chalkboard-teacher"></i> Teaching</h2>
+        <div class="card">
+            <p style="color: #64748b; margin-bottom: 16px;"><i class="fas fa-check-circle" style="color: #2563eb;"></i> 以下为已立项的课程思政专项课程</p>
+            <div class="simple-list">
+                <div class="simple-item"><span class="symbol">🎬</span> <span>단편영화창작 《剧情短片创作》</span></div>
+                <div class="simple-item"><span class="symbol">🌍</span> <span>중외영화사 《中外电影史》</span></div>
+            </div>
+        </div>
+    </section>
 
-<!-- software -->
-<section id="software">
-<h2>Software Copyrights</h2>
-<div class="card">
-<p>영화 특수효과 제작 보조 소프트웨어 V1.0 (등록번호: 2025SR1190495)</p>
-<p>시나리오 내러티브 로직 분석 및 대본 최적화 시스템 V1.0 (등록번호: 2025SR1257280)</p>
-</div>
-</section>
-
-<!-- teaching -->
-<section id="teaching">
-<h2>Teaching</h2>
-<div class="card">
-<p> 以下为已立项的课程思政专项课程 </p>
-<p>단편영화창작 《剧情短片创作》</p>
-<p>중외영화사 《中外电影史》</p>
-</div>
-</section>
-
-</div>
+</div> <!-- container -->
 
 </body>
 </html>
