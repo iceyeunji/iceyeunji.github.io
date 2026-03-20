@@ -1,104 +1,128 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Huang Shiyi | Academic Website</title>
-  <style>
-    body {margin:0;font-family:"Helvetica Neue", Arial, sans-serif;display:flex;background:#f5f7fa;color:#222;}
-    aside {width:260px;background:#111;color:#fff;min-height:100vh;padding:30px 20px;position:fixed;}
-    aside img {width:120px;border-radius:50%;display:block;margin:0 auto 20px;}
-    aside h1 {font-size:18px;text-align:center;margin-bottom:5px;}
-    aside p {font-size:12px;text-align:center;color:#ccc;}
-    aside nav {margin-top:30px;}
-    aside nav a {display:block;color:#ccc;text-decoration:none;margin:10px 0;font-size:14px;}
-    main {margin-left:260px;padding:40px;max-width:900px;}
-    h2 {border-bottom:2px solid #ddd;padding-bottom:5px;margin-top:40px;}
-    .lang {font-size:13px;color:#555;}
-    table {width:100%;border-collapse:collapse;margin-top:10px;}
-    table, th, td {border:1px solid #ccc;}
-    th, td {padding:10px;text-align:center;}
-    ul {padding-left:20px;}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huang Shiyi | Academic Website</title>
+
+<style>
+body {margin:0;font-family:"Noto Sans KR", Arial, sans-serif;background:#f8fafc;color:#1e293b;}
+
+.container {display:flex;}
+
+aside {width:260px;background:#ffffff;padding:30px 20px;min-height:100vh;position:fixed;border-right:1px solid #e2e8f0;}
+
+main {margin-left:260px;padding:50px;max-width:1000px;}
+
+aside img {width:120px;border-radius:16px;margin-bottom:20px;}
+
+aside h1 {font-size:20px;margin:10px 0;color:#0f172a;}
+
+aside p {font-size:13px;color:#64748b;}
+
+aside a {display:block;color:#475569;text-decoration:none;margin:10px 0;font-size:14px;}
+
+aside a:hover {color:#2563eb;}
+
+section {margin-bottom:60px;}
+
+h2 {font-size:22px;border-left:4px solid #2563eb;padding-left:10px;color:#0f172a;}
+
+.card {background:#ffffff;padding:20px;border-radius:12px;margin-top:15px;box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+
+.pub a {color:#2563eb;text-decoration:none;}
+
+.pub a:hover {text-decoration:underline;}
+
+.tag {display:inline-block;background:#e0f2fe;color:#0369a1;padding:4px 10px;border-radius:8px;font-size:12px;margin:5px 5px 0 0;}
+
+</style>
 </head>
+
 <body>
+<div class="container">
 
 <aside>
-  <img src="images/황시이.jpg">
-  <h1>황시이<br>Huang Shiyi</h1>
-  <p>PhD Candidate<br>Digital Humanities</p>
-  <p>AKS</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#education">Education</a>
-    <a href="#publications">Publications</a>
-    <a href="#projects">Projects</a>
-    <a href="#teaching">Teaching</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<img src="images/황시이.jpg">
+<h1>황시이<br>Huang Shiyi</h1>
+<p>PhD Candidate<br>Digital Humanities</p>
+<p>AKS</p>
+
+<nav>
+<a href="#about">About</a>
+<a href="#research">Research</a>
+<a href="#publications">Publications</a>
+<a href="#projects">Projects</a>
+<a href="#teaching">Teaching</a>
+<a href="#contact">Contact</a>
+</nav>
 </aside>
 
 <main>
 
 <section id="about">
 <h2>About</h2>
-<p>안녕하세요. 한국학중앙연구원 디지털인문학연구소에서 인문정보학을 전공하고 있는 황시이입니다. 저는 디지털 인문학과 미디어 연구의 융합을 중심으로, 데이터 기반 분석과 영화 연구를 결합한 학제적 연구를 수행하고 있습니다.</p>
-<p class="lang">I am a PhD candidate in Humanities Information Science at the Academy of Korean Studies. My research focuses on the intersection of digital humanities and media studies, particularly computational approaches to film analysis.</p>
+<div class="card">
+<p>안녕하세요. 한국학중앙연구원 디지털인문학연구소에서 인문정보학을 전공하고 있는 황시이입니다. 디지털 인문학과 미디어 연구의 접점을 중심으로 데이터 기반 영화 분석 및 AIGC 연구를 수행하고 있습니다.</p>
+<p>I am a PhD candidate focusing on digital humanities and computational film analysis.</p>
+</div>
 </section>
 
 <section id="research">
 <h2>Research</h2>
-<ul>
-<li>Digital Humanities & Computational Analysis</li>
-<li>Film Color Analysis & Quantitative Film Studies</li>
-<li>AIGC and Media User Behavior</li>
-<li>Data Visualization (VIAN, CIELAB)</li>
-</ul>
-</section>
-
-<section id="education">
-<h2>Education</h2>
-<table>
-<tr><th>Degree</th><th>Major</th><th>University</th><th>Year</th></tr>
-<tr><td>Ph.D.</td><td>Humanities Information Science</td><td>AKS</td><td>2026~</td></tr>
-<tr><td>M.A.</td><td>Film Studies</td><td>Sungkyunkwan University</td><td>2022-2024</td></tr>
-<tr><td>B.A.</td><td>Film & Video</td><td>Dongguk University</td><td>2018-2022</td></tr>
-</table>
+<div class="card">
+<div class="tag">Digital Humanities</div>
+<div class="tag">Film Color Analysis</div>
+<div class="tag">AIGC</div>
+<div class="tag">VIAN</div>
+<div class="tag">CIELAB</div>
+</div>
 </section>
 
 <section id="publications">
 <h2>Publications</h2>
-<ul>
-<li>Bilibili 탄막 문화 분석 (KCI)</li>
-<li>AIGC와 사용자 행동 연구 (CNKI)</li>
-</ul>
+
+<div class="card pub">
+<p><b>황시이</b>. 중국 동영상 플랫폼 Bilibili의 탄막 현상 분석 - 헨리 젠킨스의 참여문화 개념을 중심으로.<br>
+<a href="https://koreascience.or.kr/article/JAKO202324172318263.page" target="_blank">🔗 KCI 논문 바로가기</a></p>
+</div>
+
+<div class="card pub">
+<p><b>Huang Shiyi</b>. AIGC在短视频平台上的应用及其对用户行为影响研究.<br>
+<a href="https://oversea-cnki-net-ssl.openlink.aks.ac.kr/kcms2/article/abstract?v=esvOG1ozB-hUexg6l5ZJ3lW4yuSpohSNAK3UzMY3xynwOnF_RDjBzfosNet0US4kCEcsP-phn8M_nGDupIQvoD23UW38ZlLcdVEInUkF9xrvqeQHcdwFlfEtGB6oasFzETwBEvCKJcljsUUwtlWwYdd0sXW2EU3STl4vTumxA3So6XFmi5ngAw=" target="_blank">🔗 CNKI 바로가기</a></p>
+</div>
+
 </section>
 
 <section id="projects">
 <h2>Projects</h2>
-<ul>
-<li>전자상거래 웹디자인 프로젝트 (PI)</li>
-<li>AIGC 사용자 행동 연구 (PI)</li>
-<li>VR 교육 프로젝트 (Co-Investigator)</li>
-</ul>
+
+<div class="card">
+<p><b>PI</b> | 전자상거래 웹디자인 프로젝트 (연구비 2000만원)</p>
+<p><b>PI</b> | AIGC 사용자 행동 연구</p>
+<p><b>Co-I</b> | VR 기반 교육 프로젝트 (연구비 4000만원)</p>
+</div>
+
 </section>
 
 <section id="teaching">
 <h2>Teaching</h2>
-<ul>
-<li>중외영화사</li>
-<li>단편영화 창작</li>
-</ul>
+<div class="card">
+<p>중외영화사</p>
+<p>단편영화 창작</p>
+</div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
+<div class="card">
 <p>Email: huangshiyi1203@gmail.com</p>
+</div>
 </section>
 
 </main>
-
+</div>
 </body>
 </html>
+
 
