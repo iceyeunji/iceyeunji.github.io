@@ -31,6 +31,15 @@
             text-align: center;
             margin-bottom: 32px;
         }
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
         .header h1 {
             font-size: 2.2rem;
             font-weight: 600;
@@ -98,6 +107,55 @@
         .lang-btn:hover:not(.active) {
             background: #e2e8f0;
             color: #1e293b;
+        }
+
+        /* 关于我卡片样式 */
+        .about-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-left: 5px solid #2563eb;
+            margin-bottom: 40px;
+        }
+        .about-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .about-header i {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+        .about-header h2 {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .about-text p {
+            margin-bottom: 14px;
+            line-height: 1.7;
+        }
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .research-tag {
+            background: white;
+            color: #2563eb;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #cbd5e1;
+            transition: 0.2s;
+        }
+        .research-tag:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
         }
 
         /* 简历内容区域 (默认显示韩文) */
@@ -284,7 +342,8 @@
 <div class="container">
     <!-- 头部：统一展示 -->
     <div class="header">
-        <h1>Huang Shiyi (黄诗怡)</h1>
+        <img src="images/profile.jpg" alt="黄诗怡" class="profile-img" onerror="this.style.display='none'">
+        <h1>Huang shiyi (黄诗怡)</h1>
         <div class="subhead">PhD Candidate in Digital Humanities | Cinemetrics · AIGC · Media Studies</div>
         <div class="affiliation">The Academy of Korean Studies (AKS) · Digital Humanities Research Institute</div>
         <div class="contact">
@@ -300,14 +359,51 @@
         <button class="lang-btn" data-lang="en">🇬🇧 English</button>
     </div>
 
+    <!-- ================= 关于我 (三语联动) ================= -->
+    <div class="card about-card">
+        <div class="about-header">
+            <i class="fas fa-user-circle"></i>
+            <h2>About Me</h2>
+        </div>
+        
+        <!-- 韩语 -->
+        <div class="about-text" data-lang="ko" style="display: block;">
+            <p>안녕하세요, 한국학중앙연구원 디지털인문학연구소에서 인문정보학 박사 과정에 재학 중인 황시이입니다. 영화영상학을 전공으로 석사 학위를 받으며 영상 미디어와 문화 현상에 대한 학문적 관심을 쌓아왔으며, 현재는 디지털인문학의 방법론을 활용하여 <strong>시네메트릭스(Cinemetrics, 计量电影学)</strong>을 주요 연구 분야로 삼고 있습니다.</p>
+            <p>컴퓨터 비전, 머신러닝, 데이터 시각화 등의 기법을 통해 영화의 샷 구성, 편집 패턴, 색채 사용, 서사 구조 등을 정량적으로 분석함으로써, 기존의 질적 분석을 보완하는 새로운 영화 연구 방법론을 모색하고 있습니다. 이러한 계량적 접근을 통해 감독의 미학적 특성, 시대별 영화 양식의 변화, 동아시아 영화의 비교분석 등에 대한 연구를 수행하고자 합니다.</p>
+            <p>아울러, AIGC 기술의 확산과 참여문화의 변화 등 디지털 환경에서의 미디어 현상에도 관심을 두고 학제적 연구를 이어가고 있습니다.</p>
+        </div>
+        
+        <!-- 中文 -->
+        <div class="about-text" data-lang="zh" style="display: none;">
+            <p>您好，我是黄诗怡，目前就读于韩国学中央研究院韩国学大学院，攻读数字人文学博士学位。我硕士毕业于成均馆大学电影与视觉研究学专业，本科毕业于东国大学电影影像学专业。现在主要运用数字人文的方法论，专注于<strong>计量电影学(Cinemetrics)</strong>研究。</p>
+            <p>通过计算机视觉、机器学习、数据可视化等技术，对电影的镜头构成、剪辑模式、色彩运用、叙事结构等进行定量分析，探索补充传统定性分析的新电影研究方法。借助这种量化分析路径，我希望能够深入探究导演的美学特征、不同时期电影风格的演变，以及东亚电影的对比分析等问题。</p>
+            <p>此外，我也关注AIGC技术的普及和参与式文化的变化等数字环境下的媒体现象，致力于开展跨学科研究，推动电影研究与数字人文的深度融合。</p>
+        </div>
+        
+        <!-- 英文 -->
+        <div class="about-text" data-lang="en" style="display: none;">
+            <p>Hello, I am Huang Shiyi, a Ph.D. candidate in Digital Humanities at the Graduate School of Korean Studies, The Academy of Korean Studies (AKS). With a master's degree in Film and Visual Studies from Sungkyunkwan University and a bachelor's degree in Film and Video Studies from Dongguk University, I have developed a strong academic interest in visual media and cultural phenomena. My current research focuses on <strong>Cinemetrics</strong>, applying digital humanities methodologies to the quantitative analysis of film.</p>
+            <p>Using techniques such as computer vision, machine learning, and data visualization, I analyze shot composition, editing patterns, color usage, and narrative structures in films. This quantitative approach complements traditional qualitative analysis, offering new perspectives for film studies. My research aims to explore directors' aesthetic characteristics, stylistic shifts across different eras, and comparative analysis of East Asian cinema.</p>
+            <p>In addition, I am interested in the impact of AIGC technologies on media ecosystems and the transformation of participatory culture in digital environments. I strive to bridge film studies and digital humanities through interdisciplinary research.</p>
+        </div>
+        
+        <div class="research-tags">
+            <span class="research-tag">📊 Cinemetrics</span>
+            <span class="research-tag">🎬 Film Studies</span>
+            <span class="research-tag">🤖 AIGC</span>
+            <span class="research-tag">📈 Digital Humanities</span>
+            <span class="research-tag">🌏 East Asian Cinema</span>
+        </div>
+    </div>
+
     <!-- ================= 韩文简历 ================= -->
     <div id="resume-ko" class="resume-content active">
         <!-- 学历 -->
         <section>
             <h2>학력</h2>
             <div class="card">
-                <div class="edu-item"><span class="edu-degree">Ph.D. 과정</span><span class="edu-major">디지털인문학</span><span class="edu-univ">한국학중앙연구원 한국학대학원</span><span class="edu-year">2026.03 – 현재</span></div>
-                <div class="edu-item"><span class="edu-degree">석사</span><span class="edu-major">영화 및 시각연구학</span><span class="edu-univ">성균관대학교</span><span class="edu-year">2022.03 – 2024.02</span></div>
+                <div class="edu-item"><span class="edu-degree">Ph.D. 과정</span><span class="edu-major">인문정보학</span><span class="edu-univ">한국학중앙연구원 한국학대학원</span><span class="edu-year">2026.03 – 현재</span></div>
+                <div class="edu-item"><span class="edu-degree">석사</span><span class="edu-major">영상학</span><span class="edu-univ">성균관대학교</span><span class="edu-year">2022.03 – 2024.02</span></div>
                 <div class="edu-item"><span class="edu-degree">학사</span><span class="edu-major">영화영상학</span><span class="edu-univ">동국대학교</span><span class="edu-year">2018.03 – 2022.02</span></div>
             </div>
         </section>
@@ -325,7 +421,7 @@
             <h2>논문</h2>
             <div class="card">
                 <div class="pub-item">
-                    <div class="pub-title">"중국 동영상 플랫폼 빌리빌리(Bilibili)의 단무 현상 분석 – 헨리 젠킨스의 참여문화 개념을 중심으로"</div>
+                    <div class="pub-title">"중국 동영상 플랫폼 빌리빌리(Bilibili)의 탄막 현상 분석 – 헨리 젠킨스의 참여문화 개념을 중심으로"</div>
                     <div class="pub-authors"><b>황시이</b>, 권호창</div>
                     <div class="pub-venue">trans-, 제15호, pp.81-104 (2023) | KCI 등재</div>
                     <div class="pub-links"><a href="https://doi.org/10.23086/trans.2023.15.04" target="_blank">DOI</a></div>
@@ -333,13 +429,14 @@
                 <div class="pub-item">
                     <div class="pub-title">"AIGC 기술을 활용한 《영화 극본 창작》 교과목의 교수 혁신 연구"</div>
                     <div class="pub-authors"><b>황시이</b></div>
-                    <div class="pub-venue">제1회 인공지능 기반 신문과 건설 혁신 발전 학술研讨会 논문집, pp.267-270 (2026) | CNKI</div>
-                    <div class="pub-links"><a href="https://doi.org/10.26914/c.cnkihy.2026.003970" target="_blank">DOI</a></div>
+                    <div class="pub-venue">제1회 인공지능 기반 신문과 건설 혁신 발전 학술대회 논문집, pp.267-270 (2026) | CNKI</div>
+                    <div class="pub-links"><a href="https://kns.cnki.net/kcms2/article/abstract?v=okZOhLws3JSNzeNjVQufr01v0IBksNoZyKN_wexg3-mG-jhAxDN7Gwn3CqtpC7THTNk2P6N3PWdVD-BRmfwr6d--zNdUMNe9ATlkxF3z_jJfG-wbCVYOcd4hp4Lv935HVlZU4Pp40fV6Mw_RCP5jQCehG3QqJ3y0b2v9ISAPkXyGCpOhc2niWg==&uniplatform=NZKPT&languag" target="_blank">CNKI</a></div>
                 </div>
                 <div class="pub-item">
                     <div class="pub-title">"숏폼 동영상 플랫폼에서의 AIGC 적용 및 사용자 행동 영향 연구"</div>
                     <div class="pub-authors"><b>황시이</b></div>
                     <div class="pub-venue">인물사진, 제09호, pp.191-192 (2025) | CNKI</div>
+                    <div class="pub-links"><a href="https://kns.cnki.net/kcms2/article/abstract?v=okZOhLws3JT8PWmm6nYDEkicPUEh9__CvQmg7GVgLP8YJ5mdLoEJVs5nOK2t06Td1FrzktD92Z8d8Yl8vTsuQ3hHaTIdI7Jo9ZCDbEYiZPY6Zt4JzWe-DSaV1SbNQ7qvlVSESpCEk0p_9Hwz7uFDmQVopceLmHm3qWEhDT_rzV1Y_j9Sk23K2A==&uniplatform=NZKPT&languag" target="_blank">CNKI</a></div>
                 </div>
             </div>
         </section>
@@ -348,12 +445,12 @@
             <h2>연구과제</h2>
             <div class="card">
                 <div style="font-weight: 600; margin: 12px 0 4px 0;">수행 중인 과제</div>
-                <div class="project-item"><span class="project-role">주관</span><span class="project-desc">디지털인문학 관점에서 본 주장시 서원 문화의 활성화 연구 (과제번호: 26YB642) / 주장시 사회과학기금</span></div>
-                <div class="project-item"><span class="project-role">참여</span><span class="project-desc">AI 활용 '교과서 속 주장시 시가' IP 구축 및 디지털 전파 경로 연구 (26YB643)</span></div>
-                <div class="project-item"><span class="project-role">참여</span><span class="project-desc">AIGC 기반 홍수 극복 정신의 디지털 기억 창작 연구 (26YB651)</span></div>
+                <div class="project-item"><span class="project-role">주관</span><span class="project-desc">디지털인문학 관점에서 본 주장시 서원 문화의 활성화 연구 (과제번호: 26YB642) / 2026년 주장시 사회과학기금</span></div>
+                <div class="project-item"><span class="project-role">참여</span><span class="project-desc">AI 활용 '교과서 속 주장시 시가' IP 구축 및 디지털 전파 경로 연구 (26YB643) / 2026년 주장시 사회과학기금</span></div>
+                <div class="project-item"><span class="project-role">참여</span><span class="project-desc">AIGC 기반 홍수 극복 정신의 디지털 기억 창작 연구 (26YB651) / 2026년 주장시 사회과학기금</span></div>
                 <div style="font-weight: 600; margin: 20px 0 4px 0;">완료된 과제</div>
                 <div class="project-item"><span class="project-role">주관</span><span class="project-desc">숏폼 동영상 플랫폼에서의 AIGC 적용 및 사용자 행동 영향 연구 (NLSK2425) / 남창이공대학 청년 프로젝트</span></div>
-                <div class="project-item"><span class="project-role">참여</span><span class="project-desc">장시성 혁명 문화의 영상 전파 및 교육적 효과 연구 (NLSK2404)</span></div>
+                <div class="project-item"><span class="project-role">참여</span><span class="project-desc">장시성 혁명 문화의 영상 전파 및 교육적 효과 연구 (NLSK2404)/ 남창이공대학 일반 프로젝트</span></div>
                 <div class="project-item"><span class="project-role">참여</span><span class="project-desc">중외영화사 (교과목 과정 내 사상정치 교육 시범 프로젝트)</span></div>
                 <div class="project-item"><span class="project-role">참여</span><span class="project-desc">단편극본 창작 (교과목 과정 내 사상정치 교육 시범 프로젝트)</span></div>
                 <div style="font-weight: 600; margin: 20px 0 4px 0;">산학협력 과제</div>
@@ -367,7 +464,7 @@
             <div class="card">
                 <div class="simple-list">
                     <div class="simple-item"><i class="fas fa-copyright simple-icon"></i> <span>영화 특수효과 제작 보조 소프트웨어 V1.0 (등록번호: 2025SR1190495)</span></div>
-                    <div class="simple-item"><i class="fas fa-copyright simple-icon"></i> <span>영화 극본 서사 논리 분석 및 스크립트 최적화 시스템 V1.0 (2025SR1257280)</span></div>
+                    <div class="simple-item"><i class="fas fa-copyright simple-icon"></i> <span>영화 극본 서사 논리 분석 및 스크립트 최적화 시스템 V1.0 (등록번호: 2025SR1257280)</span></div>
                 </div>
             </div>
         </section>
@@ -379,24 +476,24 @@
         <section><h2>工作经历</h2><div class="card"><div class="exp-item"><span class="exp-role">研究员</span><span class="exp-place">AKS数字人文研究所</span><span class="exp-date">2026.03 – 至今</span></div><div class="exp-item"><span class="exp-role">讲师</span><span class="exp-place">南昌理工学院</span><span class="exp-date">2024.03 – 至今</span></div><div class="exp-item"><span class="exp-role">讲师</span><span class="exp-place">江西科技师范大学</span><span class="exp-date">2024.09 – 至今</span></div></div></section>
         <section><h2>论文</h2><div class="card">
             <div class="pub-item"><div class="pub-title">中国视频平台哔哩哔哩的弹幕现象分析——以亨利·詹金斯的参与式文化概念为中心</div><div class="pub-authors">黄诗怡，权镐昌</div><div class="pub-venue">trans-, 第15号, pp.81-104 (2023) | KCI</div><div class="pub-links"><a href="https://doi.org/10.23086/trans.2023.15.04" target="_blank">DOI</a></div></div>
-            <div class="pub-item"><div class="pub-title">AIGC技术赋能《影视剧本创作》课程的教学创新研究</div><div class="pub-authors">黄诗怡</div><div class="pub-venue">第一届人工智能赋能新文科建设创新发展研讨会论文集, pp.267-270 (2026) | CNKI</div><div class="pub-links"><a href="https://doi.org/10.26914/c.cnkihy.2026.003970" target="_blank">DOI</a></div></div>
-            <div class="pub-item"><div class="pub-title">AIGC在短视频平台上的应用及其对用户行为影响研究</div><div class="pub-authors">黄诗怡</div><div class="pub-venue">人像摄影, 第09期, pp.191-192 (2025) | CNKI</div></div>
+            <div class="pub-item"><div class="pub-title">AIGC技术赋能《影视剧本创作》课程的教学创新研究</div><div class="pub-authors">黄诗怡</div><div class="pub-venue">第一届人工智能赋能新文科建设创新发展研讨会论文集, pp.267-270 (2026) | CNKI</div><div class="pub-links"><a href="https://kns.cnki.net/kcms2/article/abstract?v=okZOhLws3JSNzeNjVQufr01v0IBksNoZyKN_wexg3-mG-jhAxDN7Gwn3CqtpC7THTNk2P6N3PWdVD-BRmfwr6d--zNdUMNe9ATlkxF3z_jJfG-wbCVYOcd4hp4Lv935HVlZU4Pp40fV6Mw_RCP5jQCehG3QqJ3y0b2v9ISAPkXyGCpOhc2niWg==&uniplatform=NZKPT&languag" target="_blank">CNKI</a></div></div>
+            <div class="pub-item"><div class="pub-title">AIGC在短视频平台上的应用及其对用户行为影响研究</div><div class="pub-authors">黄诗怡</div><div class="pub-venue">人像摄影, 第09期, pp.191-192 (2025) | CNKI</div><div class="pub-links"><a href="https://kns.cnki.net/kcms2/article/abstract?v=okZOhLws3JT8PWmm6nYDEkicPUEh9__CvQmg7GVgLP8YJ5mdLoEJVs5nOK2t06Td1FrzktD92Z8d8Yl8vTsuQ3hHaTIdI7Jo9ZCDbEYiZPY6Zt4JzWe-DSaV1SbNQ7qvlVSESpCEk0p_9Hwz7uFDmQVopceLmHm3qWEhDT_rzV1Y_j9Sk23K2A==&uniplatform=NZKPT&languag" target="_blank">CNKI</a></div></div>
         </div></section>
         <section><h2>科研项目</h2><div class="card">
             <div style="font-weight:600; margin:8px 0 4px">在研项目</div>
-            <div class="project-item"><span class="project-role">主持</span><span class="project-desc">数字人文视域下九江书院文化活化研究 (26YB642) / 九江市社会科学基金</span></div>
-            <div class="project-item"><span class="project-role">参与</span><span class="project-desc">AI赋能“课本里的九江诗词”IP构建和数字化传播路径研究 (26YB643)</span></div>
-            <div class="project-item"><span class="project-role">参与</span><span class="project-desc">AIGC赋能抗洪精神数字记忆创作研究 (26YB651)</span></div>
+            <div class="project-item"><span class="project-role">主持</span><span class="project-desc">数字人文视域下九江书院文化活化研究 (26YB642) / 2026年九江市社会科学基金</span></div>
+            <div class="project-item"><span class="project-role">参与</span><span class="project-desc">AI赋能"课本里的九江诗词"IP构建和数字化传播路径研究 (26YB643)/ 2026年九江市社会科学基金</span></div>
+            <div class="project-item"><span class="project-role">参与</span><span class="project-desc">AIGC赋能抗洪精神数字记忆创作研究 (26YB651)/ 2026年九江市社会科学基金</span></div>
             <div style="font-weight:600; margin:20px 0 4px">已结题项目</div>
             <div class="project-item"><span class="project-role">主持</span><span class="project-desc">AIGC在短视频平台上的应用及其对用户行为的影响研究 (NLSK2425) / 南昌理工学院青年项目</span></div>
-            <div class="project-item"><span class="project-role">参与</span><span class="project-desc">江西红色文化的影像传播与育人效果研究 (NLSK2404)</span></div>
+            <div class="project-item"><span class="project-role">参与</span><span class="project-desc">江西红色文化的影像传播与育人效果研究 (NLSK2404)/ 南昌理工学院一般项目</span></div>
             <div class="project-item"><span class="project-role">参与</span><span class="project-desc">中外电影史 (校级课程思政示范项目)</span></div>
             <div class="project-item"><span class="project-role">参与</span><span class="project-desc">剧情短片创作 (校级课程思政示范项目)</span></div>
             <div style="font-weight:600; margin:20px 0 4px">横向课题</div>
-            <div class="project-item"><span class="project-role">主持</span><span class="project-desc">江西科通云服电子商务有限公司网页设计技术服务 (10万元)</span></div>
-            <div class="project-item"><span class="project-role">参与</span><span class="project-desc">虚拟仿真技术在影视文本写作课程中的资源开发 (20万元)</span></div>
+            <div class="project-item"><span class="project-role">主持</span><span class="project-desc">江西科通云服电子商务有限公司网页设计技术服务 (研究费：10万元)</span></div>
+            <div class="project-item"><span class="project-role">参与</span><span class="project-desc">虚拟仿真技术在影视文本写作课程中的资源开发 (研究费：20万元)</span></div>
         </div></section>
-        <section><h2>计算机软件著作权</h2><div class="card"><div class="simple-list"><div class="simple-item"><i class="fas fa-copyright simple-icon"></i> <span>影视特效制作辅助软件 V1.0 (2025SR1190495)</span></div><div class="simple-item"><i class="fas fa-copyright simple-icon"></i> <span>影视剧本叙事逻辑分析与脚本优化系统 V1.0 (2025SR1257280)</span></div></div></div></section>
+        <section><h2>计算机软件著作权</h2><div class="card"><div class="simple-list"><div class="simple-item"><i class="fas fa-copyright simple-icon"></i> <span>影视特效制作辅助软件 V1.0 (证书号：2025SR1190495)</span></div><div class="simple-item"><i class="fas fa-copyright simple-icon"></i> <span>影视剧本叙事逻辑分析与脚本优化系统 V1.0 (证书号：2025SR1257280)</span></div></div></div></section>
     </div>
 
     <!-- ================= 英文简历 ================= -->
@@ -405,8 +502,8 @@
         <section><h2>Academic Appointments</h2><div class="card"><div class="exp-item"><span class="exp-role">Researcher</span><span class="exp-place">AKS Digital Humanities Research Institute</span><span class="exp-date">Mar 2026 – present</span></div><div class="exp-item"><span class="exp-role">Lecturer</span><span class="exp-place">Nanchang Institute of Technology</span><span class="exp-date">Mar 2024 – present</span></div><div class="exp-item"><span class="exp-role">Lecturer</span><span class="exp-place">Jiangxi Science & Technology Normal University</span><span class="exp-date">Sep 2024 – present</span></div></div></section>
         <section><h2>Publications</h2><div class="card">
             <div class="pub-item"><div class="pub-title">Analysis of the Danmu Phenomenon on Bilibili – Focusing on Henry Jenkins' Participatory Culture</div><div class="pub-authors">Huang Shiyi, Hochang Kwon</div><div class="pub-venue">trans-, vol.15, pp.81-104 (2023) | KCI</div><div class="pub-links"><a href="https://doi.org/10.23086/trans.2023.15.04" target="_blank">DOI</a></div></div>
-            <div class="pub-item"><div class="pub-title">Teaching Innovation in "Film Scriptwriting" Course Empowered by AIGC Technology</div><div class="pub-authors">Huang Shiyi</div><div class="pub-venue">Proc. of 1st AI-Empowered New Liberal Arts Conference, pp.267-270 (2026) | CNKI</div><div class="pub-links"><a href="https://doi.org/10.26914/c.cnkihy.2026.003970" target="_blank">DOI</a></div></div>
-            <div class="pub-item"><div class="pub-title">AIGC Application on Short Video Platforms and Its Impact on User Behavior</div><div class="pub-authors">Huang Shiyi</div><div class="pub-venue">Portrait Photography, Issue 09, pp.191-192 (2025) | CNKI</div></div>
+            <div class="pub-item"><div class="pub-title">Teaching Innovation in "Film Scriptwriting" Course Empowered by AIGC Technology</div><div class="pub-authors">Huang Shiyi</div><div class="pub-venue">Proc. of 1st AI-Empowered New Liberal Arts Conference, pp.267-270 (2026) | CNKI</div><div class="pub-links"><a href="https://kns.cnki.net/kcms2/article/abstract?v=okZOhLws3JSNzeNjVQufr01v0IBksNoZyKN_wexg3-mG-jhAxDN7Gwn3CqtpC7THTNk2P6N3PWdVD-BRmfwr6d--zNdUMNe9ATlkxF3z_jJfG-wbCVYOcd4hp4Lv935HVlZU4Pp40fV6Mw_RCP5jQCehG3QqJ3y0b2v9ISAPkXyGCpOhc2niWg==&uniplatform=NZKPT&languag" target="_blank">CNKI</a></div></div>
+            <div class="pub-item"><div class="pub-title">AIGC Application on Short Video Platforms and Its Impact on User Behavior</div><div class="pub-authors">Huang Shiyi</div><div class="pub-venue">Portrait Photography, Issue 09, pp.191-192 (2025) | CNKI</div><div class="pub-links"><a href="https://kns.cnki.net/kcms2/article/abstract?v=okZOhLws3JT8PWmm6nYDEkicPUEh9__CvQmg7GVgLP8YJ5mdLoEJVs5nOK2t06Td1FrzktD92Z8d8Yl8vTsuQ3hHaTIdI7Jo9ZCDbEYiZPY6Zt4JzWe-DSaV1SbNQ7qvlVSESpCEk0p_9Hwz7uFDmQVopceLmHm3qWEhDT_rzV1Y_j9Sk23K2A==&uniplatform=NZKPT&languag" target="_blank">CNKI</a></div></div>
         </div></section>
         <section><h2>Research Grants & Projects</h2><div class="card">
             <div style="font-weight:600; margin:8px 0 4px">Ongoing Projects</div>
@@ -436,246 +533,39 @@
         zh: document.getElementById('resume-zh'),
         en: document.getElementById('resume-en')
     };
+    // 关于我部分的三个语言版本
+    const aboutTexts = document.querySelectorAll('.about-text');
+    
+    function switchLanguage(lang) {
+        // 切换简历内容
+        Object.keys(contents).forEach(key => {
+            contents[key].classList.remove('active');
+        });
+        contents[lang].classList.add('active');
+        
+        // 切换关于我部分的语言
+        aboutTexts.forEach(text => {
+            if (text.getAttribute('data-lang') === lang) {
+                text.style.display = 'block';
+            } else {
+                text.style.display = 'none';
+            }
+        });
+    }
+    
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.getAttribute('data-lang');
             // 激活按钮样式
             btns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            // 显示对应内容
-            Object.keys(contents).forEach(key => {
-                contents[key].classList.remove('active');
-            });
-            contents[lang].classList.add('active');
+            // 切换内容
+            switchLanguage(lang);
         });
     });
+    
+    // 初始化: 默认韩文
+    switchLanguage('ko');
 </script>
-</body>
-</html>
-            white-space: nowrap;
-        }
-
-        /* 软件著作权 & 教学 (使用普通符号) */
-        .simple-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .simple-item {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            padding: 8px 0;
-            border-bottom: 1px dashed #e2e8f0;
-        }
-        .simple-item .symbol {
-            color: #2563eb;
-            width: 22px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1rem; /* 与文字大小一致 */
-        }
-        .simple-item span {
-            flex: 1;
-        }
-
-        /* ===== 图标大小全局微调 ===== */
-        /* 让大部分图标与周围文字大小相同，避免突兀变大 */
-        i, .fas, .far, .fab {
-            font-size: 1em;
-        }
-        /* 导航栏图标与文字间距 */
-        nav a i {
-            margin-right: 4px;
-        }
-        /* 段落中引号图标稍微调小一点 */
-        .fa-quote-left {
-            font-size: 0.9em;
-        }
-
-        /* 响应式微调 */
-        @media (max-width: 600px) {
-            .container { padding: 24px 16px; }
-            h2 { font-size: 1.6rem; }
-            .card { padding: 20px; }
-            nav { gap: 10px; }
-            nav a { font-size: 0.85rem; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-
-    <!-- ===== 头部：英文名+中文名 ===== -->
-    <div class="header">
-        <img src="images/profile.jpg" alt="黄诗怡" onerror="this.style.display='none'"> <!-- 如果图片不存在则隐藏 -->
-        <h1>Huang Shiyi <span class="chinese-name">(黄诗怡)</span></h1>
-        <div class="subhead">PhD Candidate in Digital Humanities</div>
-        <div class="affiliation">한국학중앙연구원 (AKS) · 数字人文研究所</div>
-        <a href="mailto:huangshiyi1203@gmail.com" class="email"><i class="fas fa-envelope"></i> huangshiyi1203@gmail.com</a>
-    </div>
-
-    <!-- ===== 导航栏 ===== -->
-    <nav>
-        <a href="#about"><i class="fas fa-user"></i> About</a>
-        <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
-        <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
-        <a href="#publications"><i class="fas fa-file-alt"></i> Publications</a>
-        <a href="#projects"><i class="fas fa-flask"></i> Projects</a>
-        <a href="#software"><i class="fas fa-code"></i> Software</a>
-        <a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Teaching</a>
-    </nav>
-
-    <!-- ===== 关于我 ===== -->
-    <section id="about">
-        <h2><i class="fas fa-address-card"></i> About</h2>
-        <div class="card">
-            <p style="margin-bottom: 12px;">안녕하세요, 한국학중앙연구원 디지털인문학연구소에서 인문정보학을 전공하며 디지털 인문학과 미디어 연구의 접점을 탐구하고 있는 황시이입니다.</p>
-            <p style="margin-bottom: 16px;">大家好，我是黄诗怡，现就读于韩国学中央研究院人文情报学（数字人文方向），研究领域聚焦于数字人文与电影研究的交叉学科——计量电影学。目前在数字人文研究所担任研究员。</p>
-            <!-- 新增中文段落：更详细的个人陈述 -->
-            <p style="margin-bottom: 16px; background: #f1f5f9; padding: 16px; border-radius: 12px; color: #0f172a;">
-                <i class="fas fa-quote-left" style="color: #2563eb; margin-right: 6px;"></i>
-                我的研究兴趣主要包括：运用计算分析方法探索东亚电影的叙事与视觉风格，研究AIGC在短视频平台及影视创作中的应用，以及新媒体环境下的参与式文化。目前正在进行的博士课题致力于构建计量电影学的跨文化分析框架。此外，我积极参与产学合作项目，推动虚拟现实、人工智能等技术在影视教育中的创新实践。希望未来能通过数字人文的方法，为电影研究开辟新的视角。
-            </p>
-            <div class="tags">
-                <span class="tag">Digital Humanities</span>
-                <span class="tag">Film Studies</span>
-                <span class="tag">AIGC</span>
-                <span class="tag">Computational Analysis</span>
-                <span class="tag">计量电影学</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== 教育背景 ===== -->
-    <section id="education">
-        <h2><i class="fas fa-university"></i> Education</h2>
-        <div class="card">
-            <div class="edu-grid">
-                <div class="edu-item">
-                    <span class="edu-degree">Ph.D. Student</span>
-                    <span class="edu-major">인문정보학</span>
-                    <span class="edu-univ">한국학중앙연구원 (AKS)</span>
-                    <span class="edu-year">2026.03 – 至今</span>
-                </div>
-                <div class="edu-item">
-                    <span class="edu-degree">M.A.</span>
-                    <span class="edu-major">영상학과</span>
-                    <span class="edu-univ">성균관대학교</span>
-                    <span class="edu-year">2022.03 – 2024.02</span>
-                </div>
-                <div class="edu-item">
-                    <span class="edu-degree">B.A.</span>
-                    <span class="edu-major">영화영상학과</span>
-                    <span class="edu-univ">동국대학교</span>
-                    <span class="edu-year">2018.03 – 2022.02</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== 学术任职 ===== -->
-    <section id="experience">
-        <h2><i class="fas fa-briefcase"></i> Academic Appointments</h2>
-        <div class="card">
-            <div class="simple-list">
-                <div class="simple-item"><span class="symbol">📌</span> <span><strong>전임강사</strong>, 난창이공대학 (南昌理工学院)</span></div>
-                <div class="simple-item"><span class="symbol">📌</span> <span><strong>전임강사</strong>, 장시과학기술사범대학 (江西科技师范大学)</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== 出版物 ===== -->
-    <section id="publications">
-        <h2><i class="fas fa-file-alt"></i> Publications</h2>
-        <div class="card">
-            <div class="pub-list">
-                <!-- 论文 1 -->
-                <div class="pub-item">
-                    <div class="pub-info">
-                        <div class="pub-title">중국 동영상 플랫폼 Bilibili의 탄막 현상 분석 - 헨리 젠킨스의 참여문화 개념을 중심으로</div>
-                        <div class="pub-authors"><b>황시이</b></div>
-                        <div class="pub-venue">KCI 등재 학술지</div>
-                    </div>
-                    <div class="pub-links">
-                        <a href="https://koreascience.or.kr/article/JAKO202324172318263.page" target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> KCI</a>
-                    </div>
-                </div>
-                <!-- 论文 2 -->
-                <div class="pub-item">
-                    <div class="pub-info">
-                        <div class="pub-title">AIGC在短视频平台上的应用及其对用户行为影响研究</div>
-                        <div class="pub-authors"><b>Huang Shiyi</b></div>
-                        <div class="pub-venue">CNKI收录</div>
-                    </div>
-                    <div class="pub-links">
-                        <a href="https://oversea-cnki-net-ssl.openlink.aks.ac.kr/kcms2/article/abstract?..." target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> CNKI</a>
-                    </div>
-                </div>
-                <!-- 论文 3 (会议) -->
-                <div class="pub-item">
-                    <div class="pub-info">
-                        <div class="pub-title">AIGC技术赋能《影视剧本创作》课程的教学创新研究</div>
-                        <div class="pub-authors"><b>Huang Shiyi</b></div>
-                        <div class="pub-venue">학술대회 (学术会议)</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== 研究项目 ===== -->
-    <section id="projects">
-        <h2><i class="fas fa-flask"></i> Research Projects</h2>
-        <div class="card">
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div class="project-item">
-                    <span class="project-role">PI</span>
-                    <span class="project-desc">"장시 커통윈푸 전자상거래 회사 웹 디자인 기술 서비스" (산학협력 프로젝트)</span>
-                    <span class="project-funding">(2000만원)</span>
-                </div>
-                <div class="project-item">
-                    <span class="project-role">PI</span>
-                    <span class="project-desc">"숏폼 비디오 플랫폼에서의 AIGC 적용 및 사용자 행동 영향 연구"</span>
-                </div>
-                <div class="project-item">
-                    <span class="project-role">Co-I</span>
-                    <span class="project-desc">"영상 텍스트 작문 수업에서의 가상현실 시뮬레이션 기술 자원 개발"</span>
-                    <span class="project-funding">(4000만원)</span>
-                </div>
-                <div class="project-item">
-                    <span class="project-role">Co-I</span>
-                    <span class="project-desc">"인공지능 시대 장시성 대학의 영상예술 실기교육 혁신 경로 연구"</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== 软件著作权 (改用普通符号) ===== -->
-    <section id="software">
-        <h2><i class="fas fa-code"></i> Software Copyrights</h2>
-        <div class="card">
-            <div class="simple-list">
-                <div class="simple-item"><span class="symbol">©</span> <span>영화 특수효과 제작 보조 소프트웨어 V1.0 (등록번호: 2025SR1190495)</span></div>
-                <div class="simple-item"><span class="symbol">©</span> <span>시나리오 내러티브 로직 분석 및 대본 최적화 시스템 V1.0 (등록번호: 2025SR1257280)</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== 教学 ===== -->
-    <section id="teaching">
-        <h2><i class="fas fa-chalkboard-teacher"></i> Teaching</h2>
-        <div class="card">
-            <p style="color: #64748b; margin-bottom: 16px;"><i class="fas fa-check-circle" style="color: #2563eb;"></i> 以下为已立项的课程思政专项课程</p>
-            <div class="simple-list">
-                <div class="simple-item"><span class="symbol">🎬</span> <span>단편영화창작 《剧情短片创作》</span></div>
-                <div class="simple-item"><span class="symbol">🌍</span> <span>중외영화사 《中外电影史》</span></div>
-            </div>
-        </div>
-    </section>
-
-</div> <!-- container -->
-
 </body>
 </html>
